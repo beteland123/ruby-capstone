@@ -1,9 +1,9 @@
 class Item
-  attr_accessor :genere, :author, :source, :label
+  attr_accessor :genre, :author, :source, :label
 
-  def intilize(publish_date, archieved)
+  def intilize(publish_date, archived)
     @id = Random.rand(1..1000)
     @publish_date = publish_date
-    @archieved = archieved
+    @archived = archived
   end
 end
