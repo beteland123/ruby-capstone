@@ -72,15 +72,22 @@
 
 ### Key Features <a name="key-features"></a>
 
-- **[]**
-- **[]**
-- **[]**
-- **[]**
-- **[]**
-- **[]**
-- **[]**
-- **[]**
-- **[]**
+- **[Added Item class in item.rb]**
+- **[Added main.rb as console entry-point]**
+- **[Added Book class to book.rb]**
+- **[Added MusicAlbum class to musicalbum.rb]**
+- **[Added Game class to game.rb]**
+- **[Added Label class to label.rb]**
+- **[Added Genre class to genre.rb]**
+- **[Added Author class to author.rb]**
+- **[Added methods to classes]**
+- **[Preserved data in json files]**
+- **[Preserved data in json files]**
+- **[Added UI console options]**
+- **[Added unit tests for all classes and methods]**
+- **[Created schema.sql with tables that are analogical to the structure of classes created]**
+
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## 💻 Getting Started <a name="getting-started"></a>
@@ -160,8 +167,8 @@ To run tests, run the following command:
 
 ## 🔭 Future Features <a name="future-features"></a>
 
-- [ ] **[]**
-- [ ] **[]**
+- [ ] **[Add more options in the UI console]**
+- [ ] **[Add more methods to all classes]**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
