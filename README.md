@@ -44,9 +44,9 @@
 ## 🛠 Built With <a name="built-with"></a>
 
 1- Ruby 3.2.2<br>
-2- PostgreSQL
+2- PostgreSQL<br>
 3- Gitflow<br>
-4- Rubocop
+4- Rubocop<br>
 5- RSpec
 
 ### Tech Stack <a name="tech-stack"></a>
