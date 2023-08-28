@@ -29,8 +29,10 @@
 ## 🛠 Built With <a name="built-with"></a>
 
 1- Ruby 3.2.2<br>
-2- Gitflow<br>
-3- Rubocop
+2- PostgreSQL
+3- Gitflow<br>
+4- Rubocop
+5- RSpec
 
 ### Tech Stack <a name="tech-stack"></a>
 
@@ -50,22 +52,22 @@
 
 ### Key Features <a name="key-features"></a>
 
-- **[Added person.rb]**
-- **[Added student.rb]**
-- **[Added teacher.rb]**
-- **[Used the "Decorator" design pattern]**
-- **[Set up associations]**
-- **[Added basic UI]**
-- **[Refactor code]**
-- **[Preserve data]**
-- **[Unit tests]**
+- **[]**
+- **[]**
+- **[]**
+- **[]**
+- **[]**
+- **[]**
+- **[]**
+- **[]**
+- **[]**
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## 🚀 Live Demo <a name="live-demo"></a>
 
 > Add a link to your deployed project.
 
-- [Coming Soon...](https://github.com/JuanDBta/school-library-project)
+- [Coming Soon...](https://github.com/beteland123/ruby-capstone)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -87,24 +89,30 @@ Clone this repository to your desired folder:
 
 ```sh
   cd my-folder
-  git clone "https://github.com/JuanDBta/school-library-project.git"
+  git clone "https://github.com/beteland123/ruby-capstone.git"
 ```
 ### Run
 
 Go to your /school-library-project folder:
 
 ```sh
-  cd school-library-project
+  cd ruby-capstone
   ruby main.rb
 ```
 
 ### Deployment
 
-You can deploy this project using:<br>[Coming Soon!!!](https://github.com/JuanDBta/school-library-project)
+You can deploy this project using:<br>[Coming Soon!!!](https://github.com/beteland123/ruby-capstone)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## 👥 Authors <a name="authors"></a>
+
+👤 **Micronaut Betel Andarge**
+
+- GitHub: [@beteland123](https://github.com/beteland123)
+- Twitter: [@betelandarge](https://twitter.com/BetelAndarge)
+- LinkedIn: [LinkedIn](https://linkedin.com/in/betelandarge)
 
 👤 **Micronaut JUAN DAVID DIAZ**
 
@@ -112,17 +120,18 @@ You can deploy this project using:<br>[Coming Soon!!!](https://github.com/JuanDB
 - Twitter: [@simplebetsas](https://twitter.com/simplebetsas)
 - LinkedIn: [LinkedIn](https://linkedin.com/in/simplebet/)
 
-👤 **Micronaut Daniel Ochuba Ugochukwu**
+👤 **Micronaut Sebastián Hernandez**
 
-- GitHub: [@danielochuba](https://github.com/danielochuba)
+- GitHub: [@shm04](https://github.com/shm04)
+- LinkedIn: [Sebastian Hernandez](https://www.linkedin.com/in/sebastian-hernandez-munoz/)
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## 🔭 Future Features <a name="future-features"></a>
 
-- [ ] **[Improve UI]**
-- [ ] **[Add more menu options]**
+- [ ] **[]**
+- [ ] **[]**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -143,22 +152,6 @@ If you like this project, please give me a like, it doesn't cost you anything an
 ## 🙏 Acknowledgments <a name="acknowledgements"></a>
 
 I would like to thank Bee in Student Success who is always avalaible to solve issues and Microverse for push us to work hard every day!
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-## ❓ FAQ <a name="faq"></a>
-
-- **["How can I see more projects associated with these authors?"]**
-
-  - Check my [@JuanDBta](https://github.com/JuanDBta)
-   - Check my [@danielochuba](https://github.com/danielochuba)
-
-- **[How can I contact the authors of this project?]**
-
-  - Check my [LinkedIn profile](https://linkedin.com/in/simplebet/) or email me at simplebetsas@gmail.com
-  - Email me at danielochuba78@gmail.com
-
-  
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
