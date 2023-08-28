@@ -118,7 +118,7 @@ Install this project with:
   
   bundle install
 ```
-### Run
+### Usage
 
 Go to your /ruby-capstone folder:
 
