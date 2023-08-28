@@ -1,3 +1,12 @@
+<div align="center">
+ 
+  <img src="./catalog_of_my_things.png" alt="logo" width="200"  height="auto">
+  <br/>
+
+  <h3><b>Ruby group capstone - Catalog of my things</b></h3>
+
+</div>
+
 <a name="readme-top"></a>
 
 # 📗 Table of Contents
@@ -47,6 +56,13 @@
 <summary>Ruby</summary>
   <ul>
     <li><a href="https://www.ruby-lang.org/">Ruby</a></li>
+  </ul>
+</details>
+
+<details>
+<summary>Database</summary>
+  <ul>
+    <li><a href="https://www.postgresql.org/">PostgreSQL</a></li>
   </ul>
 </details>
 
