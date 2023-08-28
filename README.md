@@ -17,12 +17,11 @@
     - [Key Features](#key-features)
   - [🚀 Live Demo](#live-demo)
 - [💻 Getting Started](#getting-started)
-  - [Setup](#setup)
   - [Prerequisites](#prerequisites)
+  - [Setup](#setup)
   - [Install](#install)
   - [Usage](#usage)
   - [Run tests](#run-tests)
-  - [Deployment](#triangular_flag_on_post-deployment)
 - [👥 Authors](#authors)
 - [🔭 Future Features](#future-features)
 - [🤝 Contributing](#contributing)
@@ -105,6 +104,13 @@ Web Browser (Chrome recommended)<br>
 Code editor (VS recommended)<br>
 GitHub account<br>
 
+> You need the following tools be installed in your computer:
+
+> - [Git](https://www.linode.com/docs/guides/how-to-install-git-on-linux-mac-and-windows/)
+> - [Ruby](https://github.com/microverseinc/curriculum-ruby/blob/main/simple-ruby/articles/ruby_installation_instructions.md)
+> - IDE
+> - Etc
+
 ### Setup
 
 Clone this repository to your desired folder:
@@ -112,6 +118,15 @@ Clone this repository to your desired folder:
 ```sh
   cd my-folder
   git clone "https://github.com/beteland123/ruby-capstone.git"
+```
+### Install
+
+Install this project with:
+
+```sh
+  cd ruby-capstone
+  
+  bundle install
 ```
 ### Run
 
@@ -122,10 +137,13 @@ Go to your /ruby-capstone folder:
   ruby main.rb
 ```
 
-### Deployment
+### Run tests
 
-You can deploy this project using:<br>[Coming Soon!!!](https://github.com/beteland123/ruby-capstone)
+To run tests, run the following command:
 
+```sh
+  rspec spec/
+```
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## 👥 Authors <a name="authors"></a>
