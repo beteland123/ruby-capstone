@@ -109,7 +109,7 @@ Clone this repository to your desired folder:
 ```
 ### Run
 
-Go to your /school-library-project folder:
+Go to your /ruby-capstone folder:
 
 ```sh
   cd ruby-capstone
