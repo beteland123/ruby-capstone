@@ -18,4 +18,8 @@ class Item
 
     @archived = true
   end
+  def label=(label)
+    @label = label
+    label.item.push(self) unless label.item.include?(self)
+  end
 end
