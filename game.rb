@@ -15,7 +15,6 @@ class Game < Item
 
     return true if archived && (current_year - @last_played_at.year > 2)
 
-
     false
   end
 end
