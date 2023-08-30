@@ -56,4 +56,8 @@ class HandleMenu
     end
     @app.new_musicalbum(on_spotify)
   end
+
+  def  list_musicalbums
+    @app.list_musicalbums
+  end
 end

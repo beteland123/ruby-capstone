@@ -30,9 +30,6 @@ class App
     @items << author
     @items << label
     @date << publish_date
-
-
-
   end
   
   def all_books
@@ -89,7 +86,7 @@ class App
     if @musicalbums.empty?
       puts 'No Music albums avaliable'
     else
-      @items.each do |items|
+      @items.each do |item|
         puts "#{musicalbum_counter}.
         on_spotify: \"#{items.musicalbum.on_spotify}\",
         genre: #{items.genre_name},
@@ -98,6 +95,4 @@ class App
       end; nil
     end
   end
-
-
 end
