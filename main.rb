@@ -1,4 +1,6 @@
+require_relative 'handler'
 def main
+  handle = HandleMenu.new
   puts
   puts 'Catalog of My Things!!!'
   puts
@@ -20,7 +22,7 @@ def main
     input = gets.chomp
     case input
     when '1'
-      puts 'No books available yet'
+      puts handle.all_books
     when '2'
       puts 'No movies available yet'
     when '3'
@@ -28,14 +30,13 @@ def main
     when '4'
       puts 'No genres available yet'
     when '5'
-      puts 'No labels available yet'
+      puts handle.all_labels
     when '6'
       puts 'No authors available yet'
     when '7'
       puts 'No sources available yet'
     when '8'
-      print 'Enter title of the book: '
-      puts 'Enter author: '
+      puts handle.create_book
     when '9'
       print 'Enter title of the album: '
       puts 'Enter artist: '
