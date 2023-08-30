@@ -13,7 +13,10 @@ class App
       puts 'No books avaliable'
     else
       @books.each do |book|
-        puts "#{book_counter}. publisher: \"#{book.publisher}\", cover_state: #{book.cover_state} , publish_date: #{book.publish_date}"
+        puts "#{book_counter}.
+        publisher: \"#{book.publisher}\",
+        cover_state: #{book.cover_state} ,
+        publish_date: #{book.publish_date}"
         book_counter += 1
       end; nil
     end
