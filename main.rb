@@ -13,7 +13,7 @@ def main
     puts ' 4 - List all genres'
     puts ' 5 - List all labels'
     puts ' 6 - List all authors'
-    puts ' 7 - List all sources'
+    puts ' 7 - List all music albums'
     puts ' 8 - Add a book'
     puts ' 9 - Add a music album'
     puts '10 - Add a movie'
@@ -34,12 +34,11 @@ def main
     when '6'
       puts 'No authors available yet'
     when '7'
-      puts 'No sources available yet'
+      puts handle.list_musicalbums
     when '8'
       puts handle.create_book
     when '9'
-      print 'Enter title of the album: '
-      puts 'Enter artist: '
+      puts handle.create_musicalbum
     when '10'
       puts 'Enter title of the movie: '
     when '11'

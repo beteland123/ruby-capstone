@@ -1,12 +1,33 @@
 require_relative 'book'
 require_relative 'item'
 require_relative 'label'
+require_relative 'musicalbum'
+require_relative 'genre'
+require_relative 'author'
+require_relative 'book'
+
 class App
   def initialize
     @books = []
     @items = []
+    @musicalbums = []
+    @genres = []
+    @authors =[]
+    @labels = []
   end
 
+  def item_info(genre_name, author_first_name, author_last_name, label_title, label_color, publish_date)
+    genre = Genre.new(genre_name)
+    author = Author.new(author_first_name, author_last_name)
+    label = Label.new(label_title, label_color)
+    item = Item.new(publish_date)
+    
+    @genres << genre
+    @authors << author 
+    @labels << label
+    @items << item
+  end
+  
   def all_books
     book_counter = 1
     if @books.empty?
@@ -45,4 +66,29 @@ class App
       end; nil
     end
   end
+
+  def new_musicalbum(on_spotify)
+    musicalbum = MusicAlbum.new(on_spotify)
+        @musicalbums << musicalbum
+        @items << musicalbum
+    puts 'Music Album created !!!'
+    puts
+  end
+
+  def list_musicalbums
+    musicalbum_counter = 1
+    if @musicalbums.empty?
+      puts 'No Music albums avaliable'
+    else
+      @items.each do |items|
+        puts "#{musicalbum_counter}.
+        on_spotify: \"#{items.musicalbum.on_spotify}\",
+        genre: #{items.genre_name},
+        publish_date: #{items.publish_date}"
+        book_counter += 1
+      end; nil
+    end
+  end
+
+
 end
