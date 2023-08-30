@@ -1,4 +1,3 @@
-
 require 'spec_helper'
 describe Label do
   before(:each) do
@@ -15,9 +14,8 @@ describe Label do
       @label.title.should eql 'Title 101'
     end
     it 'returns the correct color' do
-        @label.color.should eql 'Black'
-      end
-
+      @label.color.should eql 'Black'
+    end
   end
   describe '#add_item' do
     it 'sets the label on the item' do

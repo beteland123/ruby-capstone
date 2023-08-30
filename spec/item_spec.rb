@@ -1,4 +1,3 @@
-
 require 'spec_helper'
 
 RSpec.describe Item do
@@ -11,34 +10,34 @@ RSpec.describe Item do
     end
   end
   describe '#move_to_archive' do
-  it 'sets archived to true if the item can be archived' do
-    allow(item).to receive(:can_be_archived?).and_return(true)
-    item.move_to_archive
-    expect(item.archived).to be(true)
-  end
+    it 'sets archived to true if the item can be archived' do
+      allow(item).to receive(:can_be_archived?).and_return(true)
+      item.move_to_archive
+      expect(item.archived).to be(true)
+    end
 
-  it 'does not set archived to true if the item cannot be archived' do
-    allow(item).to receive(:can_be_archived?).and_return(false)
-    item.move_to_archive
-    expect(item.archived).to be(false)
+    it 'does not set archived to true if the item cannot be archived' do
+      allow(item).to receive(:can_be_archived?).and_return(false)
+      item.move_to_archive
+      expect(item.archived).to be(false)
+    end
   end
-end
 
   describe '#label=' do
-  it 'assigns the label and adds the item to the label' do
-    # Stub `items` method to return an empty array
-    allow(label).to receive(:items).and_return([])
-    # Expect `items` method to be called once
-    expect(label).to receive(:items).once.and_return([item])
-    item.label = label
-    expect(item.label).to eq label
-  end
+    it 'assigns the label and adds the item to the label' do
+      # Stub `items` method to return an empty array
+      allow(label).to receive(:items).and_return([])
+      # Expect `items` method to be called once
+      expect(label).to receive(:items).once.and_return([item])
+      item.label = label
+      expect(item.label).to eq label
+    end
 
-  it 'does not add the item to the label if already present' do
-    # Stub `items` method to return an array with the item object
-    allow(label).to receive(:items).and_return([item])
-    item.label = label
-    expect(item.label).to eq label
+    it 'does not add the item to the label if already present' do
+      # Stub `items` method to return an array with the item object
+      allow(label).to receive(:items).and_return([item])
+      item.label = label
+      expect(item.label).to eq label
+    end
   end
-end
 end

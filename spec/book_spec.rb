@@ -16,7 +16,6 @@ describe Book do
     it 'inherits archived: false from its parent' do
       expect(book.archived).to be(false)
     end
-
   end
 
   describe '#can_be_archived?' do
