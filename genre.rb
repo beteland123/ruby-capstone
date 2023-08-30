@@ -13,4 +13,9 @@ class Genre
     item.genre = self
     @items << item
   end
+
+  def genre=(genre)
+    @genre = genre
+    genre.items.push(self) unless genre.items.include?(self)
+  end
 end
