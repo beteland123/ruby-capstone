@@ -17,7 +17,7 @@ class HandleMenu
     label_color = gets.chomp
     print 'publish_date in DD/MM/YY format: '
     publish_date = gets.chomp
-    @app.item_info(genre_name, author_first_name, author_last_name, label_title, label_color, publish_date)
+    @app.item_info(genre, author_first_name, author_last_name, label_title, label_color, publish_date)
   end
 
   def create_book

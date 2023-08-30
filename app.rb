@@ -14,6 +14,7 @@ class App
     @genres = []
     @authors =[]
     @labels = []
+    @date = []
   end
 
   def item_info(genre_name, author_first_name, author_last_name, label_title, label_color, publish_date)
@@ -25,7 +26,13 @@ class App
     @genres << genre
     @authors << author 
     @labels << label
-    @items << item
+    @items << genre
+    @items << author
+    @items << label
+    @date << publish_date
+
+
+
   end
   
   def all_books
@@ -68,9 +75,11 @@ class App
   end
 
   def new_musicalbum(on_spotify)
-    musicalbum = MusicAlbum.new(on_spotify)
+    date = @date[0]
+    musicalbum = MusicAlbum.new(date, on_spotify: on_spotify)
         @musicalbums << musicalbum
         @items << musicalbum
+    puts
     puts 'Music Album created !!!'
     puts
   end
