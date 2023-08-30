@@ -32,13 +32,13 @@ class App
   end
 
   def all_labels
-    person_counter = 1
+    counter = 1
     if @items.empty?
       puts 'No items avaliable'
     else
       @items.each do |p|
-        puts "#{person_counter}   \"#{p.label.title}\",\"#{p.label.color}\" "
-        person_counter += 1
+        puts "#{counter}   \"#{p.label.title}\",\"#{p.label.color}\" "
+        counter += 1
       end; nil
     end
   end
