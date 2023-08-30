@@ -9,6 +9,10 @@ class Game < Item
     @last_played_at = last_played_at
   end
 
+  def archive
+    @archived = true
+  end
+
   def can_be_archived?
     archived = super
     current_year = Time.now.year
