@@ -1,11 +1,9 @@
 require_relative '../genre'
-require_relative '../item' 
+require_relative '../item'
 require 'date'
 
 class DummyItem < Item
-  def genre=(genre)
-    @genre = genre
-  end
+  attr_writer :genre
 end
 
 describe Genre do
@@ -27,7 +25,7 @@ describe Genre do
 
     it 'adds the item to the collection and sets its genre' do
       genre.add_item(dummy_item)
-      
+
       expect(genre.items).to include(dummy_item)
       expect(dummy_item.genre).to eq(genre)
     end

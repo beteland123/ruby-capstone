@@ -20,7 +20,6 @@ describe MusicAlbum do
   end
 
   describe '#can_be_archived?' do
-
     it 'returns false when on_spotify is not true' do
       album.on_spotify = false
       expect(album.can_be_archived?).to be(false)
