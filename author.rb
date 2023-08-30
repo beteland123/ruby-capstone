@@ -14,9 +14,4 @@ class Author
     item.author = self
     @items << item
   end
-
-  def author=(author)
-    @author = author
-    author.items.push(self) unless author.items.include?(self)
-  end
 end
