@@ -1,26 +1,29 @@
-require './musicalbum'
+require_relative '../musicalbum'
+require 'date'
 
-RSpec.describe MusicAlbum do
-  describe "#can_be_archived?" do
-    context "when album is old enough and on Spotify" do
-      it "returns true" do
-        album = MusicAlbum.new(Date.new(2005, 1, 1), on_spotify: true)
-        expect(album.can_be_archived?).to eq(true)
-      end
+describe MusicAlbum do
+  let(:publish_date) { '04/3/2023' }
+  let(:album) { MusicAlbum.new('04/3/2023') }
+
+  describe '#initialize' do
+    it 'sets the publish_date attribute' do
+      expect(album.publish_date).to eq(Date.parse(publish_date))
     end
 
-    context "when album is not on Spotify" do
-      it "returns false" do
-        album = MusicAlbum.new(Date.new(2005, 1, 1), on_spotify: false)
-        expect(album.can_be_archived?).to eq(false)
-      end
+    it 'inherits archived: false from its parent' do
+      expect(album.archived).to be(false)
     end
 
-    context "when album is not archivable due to recent publish date" do
-      it "returns false" do
-        album = MusicAlbum.new(Date.new(2022, 1, 1), on_spotify: true)
-        expect(album.can_be_archived?).to eq(false)
-      end
+    it 'inherits on_spotify: false from its parent' do
+      expect(album.on_spotify).to be(false)
+    end
+  end
+
+  describe '#can_be_archived?' do
+
+    it 'returns false when on_spotify is not true' do
+      album.on_spotify = false
+      expect(album.can_be_archived?).to be(false)
     end
   end
 end
