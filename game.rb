@@ -8,4 +8,13 @@ class Game < Item
     @multiplayer = multiplayer
     @last_played_at = last_played_at
   end
+
+  def can_be_archived?
+    archived = super
+    current_year = Time.now.year
+
+    return true if archived && (current_year - @last_played_at.year > 2)
+
+    false
+  end
 end

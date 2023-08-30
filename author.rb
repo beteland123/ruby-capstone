@@ -8,4 +8,15 @@ class Author
     @last_name = last_name
     @items = []
   end
+
+  def add_item(item)
+    item.is_a?(Item)
+    item.author = self
+    @items << item
+  end
+
+  def author=(author)
+    @author = author
+    author.items.push(self) unless author.items.include?(self)
+  end
 end
