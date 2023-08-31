@@ -80,7 +80,6 @@ class Handler
     last_played_at = gets.chomp
     @app.new_game(multiplayer, last_played_at, data)
   end
-  
 
   def all_games
     @app.list_games
