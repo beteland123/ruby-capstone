@@ -1,12 +1,16 @@
 require_relative 'app'
-class HandleMenu
+class Handler
   def initialize
     @app = App.new
+  end
+
+  def options
+    @app.options
   end
  
   def get_item_info
     print 'Enter Genre: '
-    genre = gets.chomp
+    genre_name = gets.chomp
     print 'Enter Author first name: '
     author_first_name = gets.chomp
     print 'Enter Author last name: '
@@ -17,7 +21,7 @@ class HandleMenu
     label_color = gets.chomp
     print 'publish_date in DD/MM/YY format: '
     publish_date = gets.chomp
-    @app.item_info(genre, author_first_name, author_last_name, label_title, label_color, publish_date)
+    return genre_name, author_first_name, author_last_name, label_title, label_color, publish_date
   end
 
   def create_book
@@ -43,7 +47,7 @@ class HandleMenu
   end
 
   def create_musicalbum
-    get_item_info
+    genre_name, author_first_name, author_last_name, label_title, label_color, publish_date = get_item_info
     print 'Is the Music Album on Spotify? [Y/N]: '
     result = gets.chomp.downcase
     if result == 'y'
@@ -54,7 +58,7 @@ class HandleMenu
       puts 'Invalid input'
       puts 'Enter a Menu option: '
     end
-    @app.new_musicalbum(on_spotify)
+    @app.new_musicalbum(on_spotify, genre_name, author_first_name, author_last_name, label_title, label_color, publish_date)
   end
 
   def  list_musicalbums

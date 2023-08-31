@@ -1,28 +1,16 @@
 require_relative 'handler'
 def main
-  handle = HandleMenu.new
+  @handler = Handler.new
   puts
   puts 'Catalog of My Things!!!'
   puts
 
   loop do
-    puts 'Please enter the number of the option:'
-    puts ' 1 - List all books'
-    puts ' 2 - List all movies'
-    puts ' 3 - List of games'
-    puts ' 4 - List all genres'
-    puts ' 5 - List all labels'
-    puts ' 6 - List all authors'
-    puts ' 7 - List all music albums'
-    puts ' 8 - Add a book'
-    puts ' 9 - Add a music album'
-    puts '10 - Add a movie'
-    puts '11 - Add a game'
-    puts ' 0 - Exit'
+    @handler.options
     input = gets.chomp
     case input
     when '1'
-      puts handle.all_books
+      puts @handler.all_books
     when '2'
       puts 'No movies available yet'
     when '3'
@@ -30,15 +18,15 @@ def main
     when '4'
       puts 'No genres available yet'
     when '5'
-      puts handle.all_labels
+      puts @handler.all_labels
     when '6'
       puts 'No authors available yet'
     when '7'
-      puts handle.list_musicalbums
+      puts @handler.list_musicalbums
     when '8'
-      puts handle.create_book
+      puts @handler.create_book
     when '9'
-      puts handle.create_musicalbum
+      puts @handler.create_musicalbum
     when '10'
       puts 'Enter title of the movie: '
     when '11'
