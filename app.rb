@@ -42,19 +42,29 @@ class App
         puts "#{book_counter}.
         publisher: \"#{book.publisher}\",
         cover_state: #{book.cover_state} ,
-        publish_date: #{book.publish_date}"
+        publish_date: #{book.publish_date}
+        Genre: #{book.genre.name}
+        Author: #{book.author.first_name} #{book.author.last_name}
+        Label: #{book.label.title} (#{book.label.color})"
         book_counter += 1
       end; nil
     end
   end
 
-  def new_book(publisher, cover_state, publish_date, label_title, label_color)
+  def new_book(publisher, cover_state, genre_name, author_first_name, author_last_name, label_title, label_color, publish_date)
     label = Label.new(label_title, label_color)
     book = Book.new(publisher, cover_state, publish_date)
+    genre = Genre.new(genre_name)
+    author = Author.new(author_first_name, author_last_name)
     book.label = label
+    book.author = author
+    book.genre = genre
 
     @books << book
     @items << book
+    @authors << author
+    @labels << label
+    @genres << genre
 
     puts 'Book created successfully'
     puts
@@ -62,11 +72,11 @@ class App
 
   def all_labels
     counter = 1
-    if @items.empty?
+    if @labels.empty?
       puts 'No items avaliable'
     else
-      @items.each do |p|
-        puts "#{counter}   \"#{p.label.title}\",\"#{p.label.color}\" "
+      @labels.each do |label|
+        puts "#{counter}   \"#{label.title}\",\"#{label.color}\" "
         counter += 1
       end; nil
     end
@@ -108,7 +118,7 @@ class App
         puts "Publish Date: #{musicalbum.publish_date}"
         puts
         musicalbum_counter += 1
-      end
+      end; nil
     end
   end
 
