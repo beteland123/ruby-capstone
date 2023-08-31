@@ -1,4 +1,5 @@
 require_relative 'handler'
+
 def main
   @handler = Handler.new
   puts
@@ -14,13 +15,13 @@ def main
     when '2'
       puts 'No movies available yet'
     when '3'
-      puts 'No games available yet'
+      puts @handler.all_games
     when '4'
       puts @handler.all_genres
     when '5'
       puts @handler.all_labels
     when '6'
-      puts 'No authors available yet'
+      puts @handler.list_authors
     when '7'
       puts @handler.list_musicalbums
     when '8'
@@ -30,7 +31,7 @@ def main
     when '10'
       puts 'Enter title of the movie: '
     when '11'
-      puts 'Enter title of the game: '
+      puts @handler.create_game
     when '0'
       puts 'Goodbye!!!'
       exit

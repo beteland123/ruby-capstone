@@ -4,6 +4,8 @@ require_relative 'label'
 require_relative 'musicalbum'
 require_relative 'genre'
 require_relative 'author'
+require_relative 'game'
+require_relative 'menu'
 
 class App
   def initialize
@@ -13,22 +15,12 @@ class App
     @genres = []
     @authors = []
     @labels = []
+    @games = []
+    @authors = []
   end
 
   def options
-    puts 'Please enter the number of the option:'
-    puts ' 1 - List all books'
-    puts ' 2 - List all movies'
-    puts ' 3 - List of games'
-    puts ' 4 - List all genres'
-    puts ' 5 - List all labels'
-    puts ' 6 - List all authors'
-    puts ' 7 - List all music albums'
-    puts ' 8 - Add a book'
-    puts ' 9 - Add a music album'
-    puts '10 - Add a movie'
-    puts '11 - Add a game'
-    puts ' 0 - Exit'
+    Menu.options
   end
 
   def all_books
@@ -131,6 +123,59 @@ class App
         puts "#{index + 1}. #{genre.name}"
       end
       puts
+    end
+  end
+
+  def new_game(multiplayer, last_played_at, data)
+    game = Game.new(data[5], multiplayer, last_played_at)
+
+    genre = Genre.new(data[0])
+    author = Author.new(data[1], data[2])
+    label = Label.new(data[3], data[4])
+
+    game.genre = genre
+    game.author = author
+    game.label = label
+
+    @games << game
+    @items << game
+    @authors << author
+    @labels << label
+    @genres << genre
+
+    puts 'Game created successfully'
+    puts
+  end
+
+  def list_games
+    if @games.empty?
+      puts 'No games available'
+    else
+      game_counter = 1
+      @games.each do |game|
+        puts
+        puts "Game # #{game_counter}"
+        puts "Multiplayer: #{game.multiplayer ? 'Yes' : 'No'}"
+        puts "Last Played Date (DD/MM/YY): #{game.last_played_at}"
+        puts "Genre: #{game.genre.name}"
+        puts "Author: #{game.author.first_name} #{game.author.last_name}"
+        puts "Label: #{game.label.title} (#{game.label.color})"
+        puts "Publish Date (DD/MM/YY): #{game.publish_date}"
+
+        puts
+        game_counter += 1
+      end; nil
+    end
+  end
+
+  def all_authors
+    if @authors.empty?
+      puts 'No authors available'
+    else
+      all_authors = @authors.map { |author| "#{author.first_name} #{author.last_name}" }
+      all_authors.uniq.each_with_index do |author, index|
+        puts "#{index + 1}. #{author}"
+      end; nil
     end
   end
 end
