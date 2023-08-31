@@ -7,8 +7,8 @@ class Handler
   def options
     @app.options
   end
- 
-  def get_item_info
+
+  def capture_item_info
     print 'Enter Genre: '
     genre_name = gets.chomp
     print 'Enter Author first name: '
@@ -21,16 +21,16 @@ class Handler
     label_color = gets.chomp
     print 'publish_date in DD/MM/YY format: '
     publish_date = gets.chomp
-    return genre_name, author_first_name, author_last_name, label_title, label_color, publish_date
+    [genre_name, author_first_name, author_last_name, label_title, label_color, publish_date]
   end
 
   def create_book
-    genre_name, author_first_name, author_last_name, label_title, label_color, publish_date = get_item_info
+    data = capture_item_info
     print 'Enter publisher of the book: '
     publisher = gets.chomp
     print 'cover_state: '
     cover_state = gets.chomp
-    @app.new_book(publisher, cover_state, genre_name, author_first_name, author_last_name, label_title, label_color, publish_date)
+    @app.new_book(publisher, cover_state, data)
   end
 
   def all_books
@@ -42,7 +42,7 @@ class Handler
   end
 
   def create_musicalbum
-    genre_name, author_first_name, author_last_name, label_title, label_color, publish_date = get_item_info
+    data = capture_item_info
     print 'Is the Music Album on Spotify? [Y/N]: '
     result = gets.chomp.downcase
     if result == 'y'
@@ -53,7 +53,7 @@ class Handler
       puts 'Invalid input'
       puts 'Enter a Menu option: '
     end
-    @app.new_musicalbum(on_spotify, genre_name, author_first_name, author_last_name, label_title, label_color, publish_date)
+    @app.new_musicalbum(on_spotify, data)
   end
 
   def list_musicalbums

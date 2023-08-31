@@ -4,7 +4,6 @@ require_relative 'label'
 require_relative 'musicalbum'
 require_relative 'genre'
 require_relative 'author'
-require_relative 'book'
 
 class App
   def initialize
@@ -12,9 +11,8 @@ class App
     @items = []
     @musicalbums = []
     @genres = []
-    @authors =[]
+    @authors = []
     @labels = []
-    @date = []
   end
 
   def options
@@ -32,7 +30,7 @@ class App
     puts '11 - Add a game'
     puts ' 0 - Exit'
   end
-  
+
   def all_books
     book_counter = 1
     if @books.empty?
@@ -51,11 +49,11 @@ class App
     end
   end
 
-  def new_book(publisher, cover_state, genre_name, author_first_name, author_last_name, label_title, label_color, publish_date)
-    label = Label.new(label_title, label_color)
-    book = Book.new(publisher, cover_state, publish_date)
-    genre = Genre.new(genre_name)
-    author = Author.new(author_first_name, author_last_name)
+  def new_book(publisher, cover_state, data)
+    label = Label.new(data[3], data[4])
+    book = Book.new(publisher, cover_state, data[5])
+    genre = Genre.new(data[0])
+    author = Author.new(data[1], data[2])
     book.label = label
     book.author = author
     book.genre = genre
@@ -82,13 +80,13 @@ class App
     end
   end
 
-  def new_musicalbum(on_spotify, genre_name, author_first_name, author_last_name, label_title, label_color, publish_date)
-    musicalbum = MusicAlbum.new(publish_date, on_spotify: on_spotify)
-    
-    genre = Genre.new(genre_name)
-    author = Author.new(author_first_name, author_last_name)
-    label = Label.new(label_title, label_color)
-    
+  def new_musicalbum(on_spotify, data)
+    musicalbum = MusicAlbum.new(data[5], on_spotify: on_spotify)
+
+    genre = Genre.new(data[0])
+    author = Author.new(data[1], data[2])
+    label = Label.new(data[3], data[4])
+
     musicalbum.genre = genre
     musicalbum.author = author
     musicalbum.label = label
