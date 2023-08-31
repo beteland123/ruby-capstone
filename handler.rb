@@ -63,4 +63,30 @@ class Handler
   def all_genres
     @app.list_genres
   end
+
+  def create_game
+    data = capture_item_info
+    print 'Is the Game multiplayer? [Y/N]: '
+    result = gets.chomp.downcase
+    if result == 'y'
+      multiplayer = true
+    elsif result == 'n'
+      multiplayer = false
+    else
+      puts 'Invalid input'
+      puts 'Enter a Menu option: '
+    end
+    print 'Enter the last played date (DD/MM/YY): '
+    last_played_at = gets.chomp
+    @app.new_game(multiplayer, last_played_at, data)
+  end
+  
+
+  def all_games
+    @app.list_games
+  end
+
+  def list_authors
+    @app.all_authors
+  end
 end
