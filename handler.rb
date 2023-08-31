@@ -1,21 +1,36 @@
 require_relative 'app'
-class HandleMenu
+class Handler
   def initialize
     @app = App.new
   end
 
-  def create_book
-    print 'Enter publisher of the book: '
-    publisher = gets.chomp
-    print 'cover_state: '
-    cover_state = gets.chomp
-    print 'publish_date in DD/MM/YY format: '
-    publish_date = gets.chomp
+  def options
+    @app.options
+  end
+
+  def capture_item_info
+    print 'Enter Genre: '
+    genre_name = gets.chomp
+    print 'Enter Author first name: '
+    author_first_name = gets.chomp
+    print 'Enter Author last name: '
+    author_last_name = gets.chomp
     print 'Label title : '
     label_title = gets.chomp
     print 'Label Color: '
     label_color = gets.chomp
-    @app.new_book(publisher, cover_state, publish_date, label_title, label_color)
+    print 'publish_date in DD/MM/YY format: '
+    publish_date = gets.chomp
+    [genre_name, author_first_name, author_last_name, label_title, label_color, publish_date]
+  end
+
+  def create_book
+    data = capture_item_info
+    print 'Enter publisher of the book: '
+    publisher = gets.chomp
+    print 'cover_state: '
+    cover_state = gets.chomp
+    @app.new_book(publisher, cover_state, data)
   end
 
   def all_books
@@ -24,5 +39,28 @@ class HandleMenu
 
   def all_labels
     @app.all_labels
+  end
+
+  def create_musicalbum
+    data = capture_item_info
+    print 'Is the Music Album on Spotify? [Y/N]: '
+    result = gets.chomp.downcase
+    if result == 'y'
+      on_spotify = true
+    elsif result == 'n'
+      on_spotify = false
+    else
+      puts 'Invalid input'
+      puts 'Enter a Menu option: '
+    end
+    @app.new_musicalbum(on_spotify, data)
+  end
+
+  def list_musicalbums
+    @app.list_musicalbums
+  end
+
+  def all_genres
+    @app.list_genres
   end
 end
