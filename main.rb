@@ -16,7 +16,7 @@ def main
     when '3'
       puts 'No games available yet'
     when '4'
-      puts 'No genres available yet'
+      puts @handler.all_genres
     when '5'
       puts @handler.all_labels
     when '6'

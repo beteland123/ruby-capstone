@@ -85,6 +85,9 @@ class App
 
     @musicalbums << musicalbum
     @items << musicalbum
+    @authors << author
+    @labels << label
+    @genres << genre
 
     puts 'Music Album created !!!'
     puts
@@ -109,4 +112,17 @@ class App
     end
   end
 
+  def list_genres
+    if @genres.empty?
+      puts 'No genres available'
+    else
+      puts
+      puts 'List of genres:'
+      puts
+      @genres.each_with_index do |genre, index|
+        puts "#{index + 1}. #{genre.name}"
+      end
+      puts
+    end
+  end
 end

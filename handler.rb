@@ -61,7 +61,11 @@ class Handler
     @app.new_musicalbum(on_spotify, genre_name, author_first_name, author_last_name, label_title, label_color, publish_date)
   end
 
-  def  list_musicalbums
+  def list_musicalbums
     @app.list_musicalbums
+  end
+
+  def all_genres
+    @app.list_genres
   end
 end
