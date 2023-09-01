@@ -5,8 +5,7 @@ CREATE TABLE item (
     archived BOOLEAN,
     genre  INTEGER REFERENCES genre(id),
     author INTEGER REFERENCES author(id),
-    label INTEGER REFERENCES label(id),
-    source INTEGER REFERENCES source(id)
+    label INTEGER REFERENCES label(id)
 );
 
 CREATE TABLE label (
@@ -22,6 +21,5 @@ CREATE TABLE book (
     cover_state VARCHAR(50) NOT NULL,
     genre  INTEGER REFERENCES genre(id),
     author INTEGER REFERENCES author(id),
-    label INTEGER REFERENCES label(id),
-    source INTEGER REFERENCES source(id)
+    label INTEGER REFERENCES label(id)
 );
