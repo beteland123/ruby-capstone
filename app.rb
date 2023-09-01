@@ -115,7 +115,7 @@ class App
       'AuthorLastName' => game.author.last_name,
       'LabelTitle' => game.label.title,
       'LabelColor' => game.label.color,
-      'publish_date' => game.publish_date,
+      'publish_date' => game.publish_date
     }
 
     @save.write_file('game.json', game_data)
