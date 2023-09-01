@@ -85,7 +85,7 @@ class Handler
     @app.list_games
   end
 
-  def list_authors
-    @app.all_authors
+  def all_authors
+    @app.list_authors
   end
 end
