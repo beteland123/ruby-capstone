@@ -4,6 +4,7 @@ class ListAction
     if data.nil?
       puts 'No books available'
     else
+      puts 'List of avaliable books:'
       data.each do |book|
         puts "#{book_counter}.      publisher: \"#{book['Publisher']}\",
               cover_state: #{book['cover_state']} ,
@@ -13,6 +14,7 @@ class ListAction
               Author_Last_Name: #{book['author_lasttname']}
               Label_Title: #{book['label_title']}
               Label_Color: #{book['label_color']}"
+        puts
         book_counter += 1
       end; nil
     end
@@ -23,6 +25,7 @@ class ListAction
     if data.empty?
       puts 'No items avaliable'
     else
+      puts 'List of avaliable labels:'
       data.each do |label|
         puts "#{counter}   \"#{label['title']}\",\"#{label['color']}\" "
         counter += 1

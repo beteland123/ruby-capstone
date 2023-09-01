@@ -8,7 +8,7 @@ require_relative 'author'
 require_relative 'game'
 require_relative 'menu'
 require_relative 'save'
-require_relative 'list_app'
+require_relative 'list_action'
 
 class App
   attr_accessor :books, :items, :musicalbums, :genres, :authors, :labels

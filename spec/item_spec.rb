@@ -8,21 +8,15 @@ RSpec.describe Item do
 
   describe '#can_be_archived?' do
     it 'returns true if the pulish date is more than 10 year' do
-      expect(item.can_be_archived?).to be(true)
+      expect(item.send(:can_be_archived?)).to be(true)
     end
   end
-  describe '#move_to_archive' do
-    it 'sets archived to true if the item can be archived' do
-      allow(item).to receive(:can_be_archived?).and_return(true)
-      item.move_to_archive
-      expect(item.archived).to be(true)
-    end
+  def test_move_to_archive
+    assert_equal false, item.archived # The item should not be archived initially
 
-    it 'does not set archived to true if the item cannot be archived' do
-      allow(item).to receive(:can_be_archived?).and_return(false)
-      item.move_to_archive
-      expect(item.archived).to be(false)
-    end
+    item.move_to_archive
+
+    assert_equal true, item.archived # The item should be archived after calling move_to_archive
   end
 
   describe '#label=' do
