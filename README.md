@@ -16,6 +16,7 @@
     - [Tech Stack](#tech-stack)
     - [Key Features](#key-features)
 - [💻 Getting Started](#getting-started)
+  - [Video Intro](#video-intro)
   - [Prerequisites](#prerequisites)
   - [Setup](#setup)
   - [Install](#install)
@@ -86,13 +87,17 @@
 - **[Added UI console options]**
 - **[Added unit tests for all classes and methods]**
 - **[Created schema.sql with tables that are analogical to the structure of classes created]**
-
+- **[Added Video Intro]**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## 💻 Getting Started <a name="getting-started"></a>
 
 To get a local copy up and running, follow these steps.
+
+### Video Intro
+
+[Video Intro]()
 
 ### Prerequisites
 

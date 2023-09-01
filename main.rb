@@ -29,7 +29,9 @@ def main
     when '9'
       puts @handler.create_musicalbum
     when '10'
-      puts 'Enter title of the movie: '
+      puts
+      puts 'Under construction...'
+      puts
     when '11'
       puts @handler.create_game
     when '0'
