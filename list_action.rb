@@ -37,6 +37,21 @@ class ListAction
     end
   end
 
+  def all_genres(data)
+    counter = 1
+    if data.empty?
+      puts 'No items avaliable'
+    else
+      puts
+      puts 'List of available Genres:'
+      puts
+      data.each do |genre|
+        puts "Genre ##{counter}   \"#{genre['name']}\""
+        counter += 1
+      end; nil
+    end
+  end
+
   def all_musicalbums(data)
     if data.empty?
       puts 'No Music albums available'

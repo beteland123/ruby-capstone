@@ -96,17 +96,8 @@ class App
   end
 
   def list_genres
-    if @genres.empty?
-      puts 'No genres available'
-    else
-      puts
-      puts 'List of genres:'
-      puts
-      @genres.each_with_index do |genre, index|
-        puts "#{index + 1}. #{genre.name}"
-      end
-      puts
-    end
+    data = @save.read_file('genre.json')
+    @list_app.all_genres(data)
   end
 
   def new_game(multiplayer, last_played_at, data)
