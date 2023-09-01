@@ -29,7 +29,7 @@ class Item
 
     @archived = true
   end
-  
+
   private
 
   def can_be_archived?
@@ -37,5 +37,4 @@ class Item
 
     current_year - @publish_date.year > 10
   end
-
 end
