@@ -14,6 +14,8 @@ class Game < Item
     @archived = true
   end
 
+  private
+
   def can_be_archived?
     archived = super
     current_year = Time.now.year

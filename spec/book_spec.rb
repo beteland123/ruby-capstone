@@ -21,12 +21,12 @@ describe Book do
   describe '#can_be_archived?' do
     it 'returns true when the book is not archived and cover state is bad' do
       book.cover_state = 'bad'
-      expect(book.can_be_archived?).to be(true)
+      expect(book.send(:can_be_archived?)).to be(true)
     end
 
     it 'returns false when the cover state is not bad' do
       book.cover_state = 'good'
-      expect(book.can_be_archived?).to be(false)
+      expect(book.send(:can_be_archived?)).to be(false)
     end
   end
 end

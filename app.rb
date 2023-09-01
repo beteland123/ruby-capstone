@@ -1,3 +1,4 @@
+require 'json'
 require_relative 'book'
 require_relative 'item'
 require_relative 'label'
@@ -6,17 +7,15 @@ require_relative 'genre'
 require_relative 'author'
 require_relative 'game'
 require_relative 'menu'
+require_relative 'save'
+require_relative 'list_action'
 
 class App
-  def initialize
-    @books = []
-    @items = []
-    @musicalbums = []
-    @genres = []
-    @authors = []
-    @labels = []
-    @games = []
-    @authors = []
+  attr_accessor :books, :items, :musicalbums, :genres, :authors, :labels
+
+  def initialize()
+    @save = Save.new
+    @list_app = ListAction.new
   end
 
   def options
@@ -24,21 +23,8 @@ class App
   end
 
   def all_books
-    book_counter = 1
-    if @books.empty?
-      puts 'No books avaliable'
-    else
-      @books.each do |book|
-        puts "#{book_counter}.
-        publisher: \"#{book.publisher}\",
-        cover_state: #{book.cover_state} ,
-        publish_date: #{book.publish_date}
-        Genre: #{book.genre.name}
-        Author: #{book.author.first_name} #{book.author.last_name}
-        Label: #{book.label.title} (#{book.label.color})"
-        book_counter += 1
-      end; nil
-    end
+    data = @save.read_file('book.json')
+    @list_app.all_books(data)
   end
 
   def new_book(publisher, cover_state, data)
@@ -49,27 +35,27 @@ class App
     book.label = label
     book.author = author
     book.genre = genre
-
-    @books << book
-    @items << book
-    @authors << author
-    @labels << label
-    @genres << genre
-
+    book_data = {
+      'Publisher' => book.publisher,
+      'cover_state' => book.cover_state,
+      'publisher_date' => book.publish_date,
+      'genre' => book.genre.name,
+      'label_title' => book.label.title,
+      'label_color' => book.label.color,
+      'author_firstname' => book.author.first_name,
+      'author_lasttname' => book.author.last_name
+    }
+    @save.write_file('book.json', book_data)
+    @save.label_writer(label)
+    @save.genre_writer(genre)
+    @save.author_writer(author)
     puts 'Book created successfully'
     puts
   end
 
   def all_labels
-    counter = 1
-    if @labels.empty?
-      puts 'No items avaliable'
-    else
-      @labels.each do |label|
-        puts "#{counter}   \"#{label.title}\",\"#{label.color}\" "
-        counter += 1
-      end; nil
-    end
+    data = @save.read_file('label.json')
+    @list_app.all_labels(data)
   end
 
   def new_musicalbum(on_spotify, data)

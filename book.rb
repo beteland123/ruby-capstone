@@ -8,6 +8,8 @@ class Book < Item
     @publisher = publisher
   end
 
+  private
+
   def can_be_archived?
     archived = super
     archived || @cover_state == 'bad'
