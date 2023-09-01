@@ -97,6 +97,8 @@ To get a local copy up and running, follow these steps.
 
 ### Video Intro
 
+A short description of the project:
+
 [Video Intro](https://drive.google.com/file/d/1-XullMF_bDhspyUd__l7UzL2lKglJBVk/view?usp=sharing)
 
 ### Prerequisites
