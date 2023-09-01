@@ -99,7 +99,6 @@ class App
 
   def new_game(multiplayer, last_played_at, data)
     game = Game.new(data[5], multiplayer, last_played_at)
-
     genre = Genre.new(data[0])
     author = Author.new(data[1], data[2])
     label = Label.new(data[3], data[4])
@@ -108,45 +107,33 @@ class App
     game.author = author
     game.label = label
 
-    @games << game
-    @items << game
-    @authors << author
-    @labels << label
-    @genres << genre
+    game_data = {
+      'Multiplayer' => game.multiplayer,
+      'LastPlayedAt' => game.last_played_at,
+      'Genre' => game.genre.name,
+      'AuthorFirstName' => game.author.first_name,
+      'AuthorLastName' => game.author.last_name,
+      'LabelTitle' => game.label.title,
+      'LabelColor' => game.label.color,
+      'publish_date' => game.publish_date,
+    }
+
+    @save.write_file('game.json', game_data)
+    @save.label_writer(label)
+    @save.genre_writer(genre)
+    @save.author_writer(author)
 
     puts 'Game created successfully'
     puts
   end
 
   def list_games
-    if @games.empty?
-      puts 'No games available'
-    else
-      game_counter = 1
-      @games.each do |game|
-        puts
-        puts "Game # #{game_counter}"
-        puts "Multiplayer: #{game.multiplayer ? 'Yes' : 'No'}"
-        puts "Last Played Date (DD/MM/YY): #{game.last_played_at}"
-        puts "Genre: #{game.genre.name}"
-        puts "Author: #{game.author.first_name} #{game.author.last_name}"
-        puts "Label: #{game.label.title} (#{game.label.color})"
-        puts "Publish Date (DD/MM/YY): #{game.publish_date}"
-
-        puts
-        game_counter += 1
-      end; nil
-    end
+    data = @save.read_file('game.json')
+    @list_app.all_games(data)
   end
 
-  def all_authors
-    if @authors.empty?
-      puts 'No authors available'
-    else
-      all_authors = @authors.map { |author| "#{author.first_name} #{author.last_name}" }
-      all_authors.uniq.each_with_index do |author, index|
-        puts "#{index + 1}. #{author}"
-      end; nil
-    end
+  def list_authors
+    data = @save.read_file('author.json')
+    @list_app.all_authors(data)
   end
 end

@@ -21,7 +21,7 @@ def main
     when '5'
       puts @handler.all_labels
     when '6'
-      puts @handler.list_authors
+      puts @handler.all_authors
     when '7'
       puts @handler.list_musicalbums
     when '8'
