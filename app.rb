@@ -7,32 +7,24 @@ require_relative 'genre'
 require_relative 'author'
 require_relative 'game'
 require_relative 'menu'
+require_relative 'save'
+require_relative 'list_app'
 
 class App
   attr_accessor :books, :items, :musicalbums, :genres, :authors, :labels
+
+  def initialize()
+    @save = Save.new
+    @list_app = ListAction.new
+  end
+
   def options
     Menu.options
   end
 
   def all_books
-    book_counter = 1
-    data = read_file('book.json')
-    if data.nil?
-      puts 'No books available'
-    else
-      data.each do |book|      
-        puts "#{book_counter}.
-        publisher: \"#{book['Publisher']}\",
-        cover_state: #{book['cover_state']} ,
-        publish_date: #{book['publisher_date']}
-        Genre: #{book['genre']}
-        Author_First_Name: #{book['author_firstname']}
-        Author_Last_Name: #{book['author_lasttname']}
-        Label_Title: #{book['label_title']}
-        Label_Color: #{book['label_color']}"
-        book_counter += 1
-      end;nil
-    end
+    data = @save.read_file('book.json')
+    @list_app.all_books(data)
   end
 
   def new_book(publisher, cover_state, data)
@@ -47,32 +39,23 @@ class App
       'Publisher' => book.publisher,
       'cover_state' => book.cover_state,
       'publisher_date' => book.publish_date,
-      'genre' => book.genre.name ,
-      'label_title'=>  book.label.title,
-      'label_color'=>  book.label.color,
-      'author_firstname'=> book.author.first_name,
-      'author_lasttname'=> book.author.last_name
+      'genre' => book.genre.name,
+      'label_title' => book.label.title,
+      'label_color' => book.label.color,
+      'author_firstname' => book.author.first_name,
+      'author_lasttname' => book.author.last_name
     }
-    write_file('book.json', book_data)
-    label_writer(label)
-    genre_writer(genre)
-    author_writer(author)
+    @save.write_file('book.json', book_data)
+    @save.label_writer(label)
+    @save.genre_writer(genre)
+    @save.author_writer(author)
     puts 'Book created successfully'
     puts
   end
 
-  
   def all_labels
-    counter = 1
-    data = read_file('label.json')
-    if data.empty?
-      puts 'No items avaliable'
-    else
-      data.each do |label|
-        puts "#{counter}   \"#{label['title']}\",\"#{label['color']}\" "
-        counter += 1
-      end; nil
-    end
+    data = @save.read_file('label.json')
+    @list_app.all_labels(data)
   end
 
   def new_musicalbum(on_spotify, data)
@@ -180,46 +163,5 @@ class App
         puts "#{index + 1}. #{author}"
       end; nil
     end
-  end
-  def genre_writer(genre)
-    data = {
-      'name' => genre.name
-    }
-    write_file('genre.json', data)
-  end
-  def label_writer(label)
-    data = {
-      'title' => label.title,
-      'color' => label.color
-    }
-    write_file('label.json', data)
-  end
-  def author_writer(author)
-    data = {
-      'first_name' => author.first_name,
-      'last_name' => author.last_name 
-    }
-    write_file('author.json', data)
-  end
-
-  def write_file(fil_name, new_data_item)
-    data = read_file(fil_name)
-    data << new_data_item if data
-
-    begin
-      File.write(fil_name, data.to_json)
-    rescue StandardError => e
-      puts "Error writing file: #{e}"
-    end
-  end
-
-  def read_file(filename)
-    unless File.exist?(filename)
-      File.open(filename, 'a')
-      return []
-    end
-
-    data = File.read(filename)
-    JSON.parse(data) unless data.empty?
   end
 end
