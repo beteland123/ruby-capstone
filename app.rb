@@ -38,12 +38,12 @@ class App
     book_data = {
       'Publisher' => book.publisher,
       'cover_state' => book.cover_state,
-      'publisher_date' => book.publish_date,
+      'publish_date' => book.publish_date,
       'genre' => book.genre.name,
       'label_title' => book.label.title,
       'label_color' => book.label.color,
       'author_firstname' => book.author.first_name,
-      'author_lasttname' => book.author.last_name
+      'author_lastname' => book.author.last_name
     }
     @save.write_file('book.json', book_data)
     @save.label_writer(label)
@@ -69,33 +69,30 @@ class App
     musicalbum.author = author
     musicalbum.label = label
 
-    @musicalbums << musicalbum
-    @items << musicalbum
-    @authors << author
-    @labels << label
-    @genres << genre
+    musicalbum_data = {
+    
+    'on_spotify' => musicalbum.on_spotify,
+    'publish_date' => musicalbum.publish_date,
+    'genre' => musicalbum.genre.name,
+    'label_title' => musicalbum.label.title,
+    'label_color' => musicalbum.label.color,
+    'author_firstname' => musicalbum.author.first_name,
+    'author_lastname' => musicalbum.author.last_name
+
+    }
+
+    @save.write_file('musicalbum.json', musicalbum_data)
+    @save.label_writer(label)
+    @save.genre_writer(genre)
+    @save.author_writer(author)
 
     puts 'Music Album created !!!'
     puts
   end
 
   def list_musicalbums
-    if @musicalbums.empty?
-      puts 'No Music albums available'
-    else
-      musicalbum_counter = 1
-      @musicalbums.each do |musicalbum|
-        puts
-        puts "Music Album # #{musicalbum_counter}"
-        puts "on_spotify: #{musicalbum.on_spotify}"
-        puts "Genre: #{musicalbum.genre.name}"
-        puts "Author: #{musicalbum.author.first_name} #{musicalbum.author.last_name}"
-        puts "Label: #{musicalbum.label.title} (#{musicalbum.label.color})"
-        puts "Publish Date: #{musicalbum.publish_date}"
-        puts
-        musicalbum_counter += 1
-      end; nil
-    end
+    data = @save.read_file('musicalbum.json')
+    @list_app.all_musicalbums(data)
   end
 
   def list_genres
