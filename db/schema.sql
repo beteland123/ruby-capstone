@@ -39,4 +39,20 @@ CREATE TABLE musicalbum (
     label INTEGER REFERENCES label(id)
 );
 
+CREATE TABLE author (
+    id SERIAL PRIMARY KEY NOT NULL,
+    firstName VARCHAR(150) NOT NULL,
+    lastName VARCHAR(150) NOT NULL
+);
+
+CREATE TABLE game (
+    id SERIAL PRIMARY KEY NOT NULL,
+    multiplayer BOOLEAN,
+    lastPlayedAt DATE,
+    genre  INTEGER REFERENCES genre(id),
+    author INTEGER REFERENCES author(id),
+    label INTEGER REFERENCES label(id),
+    publish_date DATE
+);
+
 
