@@ -23,3 +23,20 @@ CREATE TABLE book (
     author INTEGER REFERENCES author(id),
     label INTEGER REFERENCES label(id)
 );
+
+CREATE TABLE genre (
+    id SERIAL PRIMARY KEY NOT NULL,
+    name VARCHAR(50) NOT NULL
+);
+
+CREATE TABLE musicalbum (
+    id SERIAL PRIMARY KEY NOT NULL,
+    publish_date DATE,
+    archived BOOLEAN,
+    on_spotify BOOLEAN,
+    genre  INTEGER REFERENCES genre(id),
+    author INTEGER REFERENCES author(id),
+    label INTEGER REFERENCES label(id)
+);
+
+
