@@ -70,17 +70,14 @@ class App
     musicalbum.label = label
 
     musicalbum_data = {
-    
-    'on_spotify' => musicalbum.on_spotify,
-    'publish_date' => musicalbum.publish_date,
-    'genre' => musicalbum.genre.name,
-    'label_title' => musicalbum.label.title,
-    'label_color' => musicalbum.label.color,
-    'author_firstname' => musicalbum.author.first_name,
-    'author_lastname' => musicalbum.author.last_name
-
+      'on_spotify' => musicalbum.on_spotify,
+      'publish_date' => musicalbum.publish_date,
+      'genre' => musicalbum.genre.name,
+      'label_title' => musicalbum.label.title,
+      'label_color' => musicalbum.label.color,
+      'author_firstname' => musicalbum.author.first_name,
+      'author_lastname' => musicalbum.author.last_name
     }
-
     @save.write_file('musicalbum.json', musicalbum_data)
     @save.label_writer(label)
     @save.genre_writer(genre)
